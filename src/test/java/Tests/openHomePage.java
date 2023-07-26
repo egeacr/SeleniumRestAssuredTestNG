@@ -38,7 +38,7 @@ public class openHomePage {
         openQAJobsListPage = new OpenQAJobsListPage();
     }
 
-    //@AfterClass
+    @AfterClass
     public void tearDown(){
         Driver.quitDriver();
     }
