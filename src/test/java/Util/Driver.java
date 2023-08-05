@@ -29,6 +29,7 @@ public class Driver {
                 options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
+                driver.manage().window().maximize();
             }
             else if (browser.equalsIgnoreCase("firefox")){
                 WebDriverManager.firefoxdriver().setup();

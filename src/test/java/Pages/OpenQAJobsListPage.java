@@ -47,7 +47,7 @@ public class OpenQAJobsListPage extends BasePage {
 
     public String getFilterByDepartment(){
         WebElement departmentDropDown = find(QAJobsPageIndicator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(9));
         wait.until(ExpectedConditions.urlContains("department=qualityassurance"));
         String a = departmentDropDown.getAttribute("title");
         System.out.println(a);
@@ -89,20 +89,17 @@ public class OpenQAJobsListPage extends BasePage {
         return list;
     }
     public void selectPosition(int index){
-        List<WebElement> allViewRoles = findAll(viewRoleButton);
+
+        List<WebElement> allViewRoles = findAll(openPositions);
         WebElement SecondElement = allViewRoles.get(index);
+        WebElement viewButton = find(viewRoleButton);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust the timeout as needed
+        wait.until(ExpectedConditions.visibilityOf(SecondElement));
         Actions actions = new Actions(driver);
-
-
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", SecondElement);
 
-
-
-
         actions.moveToElement(SecondElement).build().perform();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust the timeout as needed
-        wait.until(ExpectedConditions.elementToBeClickable(SecondElement));
-        SecondElement.click();
+        viewButton.click();
         ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
 
