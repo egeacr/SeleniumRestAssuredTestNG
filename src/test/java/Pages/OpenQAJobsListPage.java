@@ -99,9 +99,10 @@ public class OpenQAJobsListPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust the timeout as needed
         wait.until(ExpectedConditions.visibilityOf(SecondElement));
         Actions actions = new Actions(driver);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", SecondElement);
+
 
         actions.moveToElement(SecondElement).build().perform();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", viewButton);
         viewButton.click();
         ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
