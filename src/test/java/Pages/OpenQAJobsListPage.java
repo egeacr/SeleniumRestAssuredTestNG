@@ -81,6 +81,8 @@ public class OpenQAJobsListPage extends BasePage {
         if (j.executeScript
                 ("return document.readyState").toString().equals("complete"));
         List <WebElement> openPositions = findAll(openPositionsDepartment);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(openPositionsDepartment));
         List <String> list = new ArrayList<>();
         waitForVisibilityOf(openPositionsDepartment);
         for(int i =0; i<openPositions.size(); i++) {
