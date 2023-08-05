@@ -103,6 +103,7 @@ public class OpenQAJobsListPage extends BasePage {
 
         actions.moveToElement(SecondElement).build().perform();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", viewButton);
+        wait.until(ExpectedConditions.elementToBeClickable(viewButton));
         viewButton.click();
         ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
