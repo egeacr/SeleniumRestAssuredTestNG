@@ -32,4 +32,11 @@ jobs:
     - run: chrome --version
 
     - name: Build with Maven
-      run: mvn -B clean test
+      run: mvn clean test -B
+
+    - name: Upload Test Reports
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-reports
+        path: target/surefire-reports
