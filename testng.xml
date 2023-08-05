@@ -5,9 +5,6 @@
           name="/Users/egeacar/IdeaProjects/SeleniumSampleProjectInsider/src/test/java/Tests/openHomePage.java">
         <classes>
             <class name="Tests.openHomePage">
-                <methods>
-                    <include name="openHomePage"/>
-                </methods>
             </class>
         </classes>
     </test>
