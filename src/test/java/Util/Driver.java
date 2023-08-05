@@ -20,7 +20,11 @@ public class Driver {
             if(browser.equalsIgnoreCase("chrome")){
                 WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
                 options.addArguments("--disable-notifications");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
                 options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(options);
             }
@@ -33,7 +37,7 @@ public class Driver {
         return driver;
     }
 
-    @AfterSuite
+    //@AfterSuite
     public static void quitDriver(){
         driver.quit();
         driver = null;

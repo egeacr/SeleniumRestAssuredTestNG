@@ -88,7 +88,6 @@ public class OpenQAJobsListPage extends BasePage {
         }
         return list;
     }
-
     public void selectPosition(int index){
         List<WebElement> allViewRoles = findAll(viewRoleButton);
         WebElement SecondElement = allViewRoles.get(index);
