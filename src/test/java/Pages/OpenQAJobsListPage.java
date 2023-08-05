@@ -96,6 +96,7 @@ public class OpenQAJobsListPage extends BasePage {
         List<WebElement> allViewRoles = findAll(openPositions);
         WebElement SecondElement = allViewRoles.get(index);
         WebElement viewButton = find(viewRoleButton);
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust the timeout as needed
         wait.until(ExpectedConditions.visibilityOf(SecondElement));
         Actions actions = new Actions(driver);
@@ -103,7 +104,7 @@ public class OpenQAJobsListPage extends BasePage {
 
         actions.moveToElement(SecondElement).build().perform();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", viewButton);
-        wait.until(ExpectedConditions.elementToBeClickable(viewButton));
+        wait.until(ExpectedConditions.elementToBeClickable(SecondElement));
         viewButton.click();
         ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
