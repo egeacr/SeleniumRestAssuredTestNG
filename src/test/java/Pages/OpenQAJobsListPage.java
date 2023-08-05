@@ -93,6 +93,10 @@ public class OpenQAJobsListPage extends BasePage {
         WebElement SecondElement = allViewRoles.get(index);
         Actions actions = new Actions(driver);
         actions.moveToElement(SecondElement).build().perform();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       wait.until(ExpectedConditions.elementToBeClickable(allViewRoles.get(index)));
+
         SecondElement.click();
         ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tab.get(1));
