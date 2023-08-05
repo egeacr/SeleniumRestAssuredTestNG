@@ -21,7 +21,7 @@ public class Driver {
                 WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless=new");
-                //options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.addArguments("--disable-notifications");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");

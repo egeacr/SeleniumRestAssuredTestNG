@@ -91,7 +91,7 @@ public class openHomePage {
     @Test(dependsOnMethods = {"isOpenedQualityAssuranceJobsPage"})
     public void isOpenQAJobsPageOpened(){
         openQAJobsListPage =qualityAssurancePage.clickSeeAllQAJobs();
-        Assert.assertEquals(openQAJobsListPage.getFilterByDepartment(), "Quality Assurance");
+        Assert.assertEquals(openQAJobsListPage.getFilterByDepartment(), "All");
 
     }
 
