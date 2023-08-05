@@ -76,11 +76,11 @@ public class OpenQAJobsListPage extends BasePage {
 
 
     public List<String> getOpenPositionsDepartment(){
-        List <WebElement> openPositions = findAll(openPositionsDepartment);
+
         JavascriptExecutor j = (JavascriptExecutor)driver;
         if (j.executeScript
                 ("return document.readyState").toString().equals("complete"));
-
+        List <WebElement> openPositions = findAll(openPositionsDepartment);
         List <String> list = new ArrayList<>();
         waitForVisibilityOf(openPositionsDepartment);
         for(int i =0; i<openPositions.size(); i++) {
