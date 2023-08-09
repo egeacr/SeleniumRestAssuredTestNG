@@ -1,14 +1,13 @@
 package Pages;
 
 import Util.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
@@ -71,6 +70,16 @@ public class BasePage {
     protected String getText(By locator){
         waitForVisibilityOf(locator, Duration.ofSeconds(3));
         return find(locator).getText();
+    }
+
+    public void captureScreenShot(String methodName){
+        try{
+            File file= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(file, new File("./Screenshots"+methodName+".png"));
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
     }
 
 }
