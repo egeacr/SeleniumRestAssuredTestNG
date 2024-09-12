@@ -7,7 +7,7 @@
     <test verbose="2" preserve-order="true"
           name="/Users/egeacar/IdeaProjects/SeleniumSampleProjectInsider/src/test/java/Tests/openHomePage.java">
         <classes>
-            <class name="Tests.openHomePage">
+            <class name="Tests.AutomationTest_UI">
             </class>
         </classes>
     </test>
