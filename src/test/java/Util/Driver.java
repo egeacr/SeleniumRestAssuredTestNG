@@ -18,7 +18,7 @@ public class Driver {
             String browser = System.getProperty("browser", "chrome");
             System.out.println("Browser type = " + browser );
             if(browser.equalsIgnoreCase("chrome")){
-                WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();
+
                 ChromeOptions options = new ChromeOptions();
                 //options.addArguments("--headless=new");
                 options.addArguments("--headless");

@@ -27,12 +27,11 @@ public class BasePage {
     }
 
     protected  List<WebElement> findAll(By locator){
+        waitForVisibilityOf(locator);
         return driver.findElements(locator);
     }
 
-    /**
-     * Wait for specific ExpectedCondition for the given amount of time in seconds
-     */
+
     private void waitFor(ExpectedCondition<WebElement> condition, Duration timeout) {
         timeout = timeout != null ? timeout:Duration.ofSeconds(30);
         //if timeout value is null, default timeout is 30 secs.
@@ -40,11 +39,8 @@ public class BasePage {
         wait.until(condition);
     }
 
-    /**
-     * Wait for given number of seconds for element with given locator to be visible
-     * on the page
-     */
-    protected void waitForVisibilityOf(By locator, Duration... timeout) { //3 dots because it's optional
+
+    protected void waitForVisibilityOf(By locator, Duration... timeout) {
         int attempts = 0;
         while (attempts < 2) {
             try {

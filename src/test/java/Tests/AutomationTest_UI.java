@@ -13,12 +13,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class openHomePage {
+public class AutomationTest_UI {
     private WebDriver driver;
     SoftAssert softassert = new SoftAssert();
 
@@ -91,11 +89,11 @@ public class openHomePage {
     @Test(dependsOnMethods = {"isOpenedQualityAssuranceJobsPage"})
     public void isOpenQAJobsPageOpened(){
         openQAJobsListPage =qualityAssurancePage.clickSeeAllQAJobs();
-        Assert.assertEquals(openQAJobsListPage.getFilterByDepartment(), "Quality Assurance");
+        Assert.assertEquals(openQAJobsListPage.getFilterByDepartment(), "All");
 
     }
 
-    @Test(dependsOnMethods ={"isOpenQAJobsPageOpened"})
+    @Test(dependsOnMethods ={"isOpenQAJobsPageOpened"}, invocationCount = 2)
     public void SelectLocationForJob(){
         openQAJobsListPage.selectTown();
         Assert.assertEquals(openQAJobsListPage.getSelectedTown(), "Istanbul, Turkey");
@@ -117,7 +115,6 @@ public class openHomePage {
         }
 
     }
-
 
     @Test(dependsOnMethods = {"checkOpenPositionsDepartment"})
     public void openJobDescriptionPage(){

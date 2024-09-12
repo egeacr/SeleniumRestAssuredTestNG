@@ -15,11 +15,8 @@ public class HomePage extends BasePage {
         this.driver=Driver.getDriver();
     }
 
-
-
-
     private By cookieAccept = By.id("wt-cli-accept-all-btn");
-    private By company = By.xpath("//ul[@class='navbar-nav']/li[position()=5]");
+    private By company = By.xpath("//ul[@class='navbar-nav']/li[position()=6]");
 
     private By parentDiv = By.className("new-menu-dropdown-layout-6-mid-container");
 
